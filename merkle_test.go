@@ -3,8 +3,8 @@ package mmr_test
 import (
 	"crypto/sha256"
 	"fmt"
-	"github.com/discretemind/mmr"
-	"github.com/discretemind/mmr/db"
+	"github.com/AllenIversons/mmr"
+	"github.com/AllenIversons/mmr/db"
 	"github.com/minio/blake2b-simd"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/sha3"

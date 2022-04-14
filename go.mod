@@ -1,4 +1,4 @@
-module github.com/discretemind/mmr
+module github.com/AllenIversons/mmr
 
 go 1.15
 
