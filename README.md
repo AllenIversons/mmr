@@ -23,7 +23,7 @@ Current Implementation has another indexing, what makes navigation over the node
  ## Install
  
  ```
- go get -u github.com/AllenIversons/mmr
+ go get -u github.com/alleniversons/mmr
  ```
  
  ## Example:

@@ -1,4 +1,4 @@
-module github.com/AllenIversons/mmr
+module github.com/alleniversons/mmr
 
 go 1.15
 

@@ -23,11 +23,11 @@ func getKey(id []byte) (res memoryKey) {
 	copy(res[:], id[:])
 	return
 }
-func (d *memoryDb) Has(id []byte) bool {
+func (d *memoryDb) Has (id []byte) bool {
 	_, ok := d.data[getKey(id)]
 	return ok
 }
-func (d *memoryDb) Get(id []byte) (data []byte, err error) {
+func (d *memoryDb) Get (id []byte) (data []byte, err error) {
 	data, ok := d.data[getKey(id)]
 	if !ok {
 		return nil, errors.New("Not found")

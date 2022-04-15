@@ -2,9 +2,10 @@ package mmr_test
 
 import (
 	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
-	"github.com/AllenIversons/mmr"
-	"github.com/AllenIversons/mmr/db"
+	"github.com/alleniversons/mmr"
+	"github.com/alleniversons/mmr/db"
 	"github.com/minio/blake2b-simd"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/sha3"
@@ -32,7 +33,17 @@ func TestMerkleObjects(t *testing.T) {
 	}
 
 	te3 := &testElement{}
+	fmt.Println(hex.EncodeToString(m.Root().Hash()))
 	err := m.Get(3, te3)
+	fmt.Println(te3)
+	te4 := &testElement{
+		Id: uint64(4), Text: fmt.Sprintf("test %d", 4),
+		State: 0,
+	}
+	_,err = m.Add(te4)
+	fmt.Println("增加后")
+	fmt.Println(hex.EncodeToString(m.Root().Hash()))
+	assert.NoError(t, err)
 	assert.NoError(t, err)
 	assert.Equal(t, "test 3", te3.Text)
 	assert.Equal(t, uint64(3), te3.Id)
@@ -49,8 +60,8 @@ func TestMerkleObjects(t *testing.T) {
 		return
 	}
 
-	te4 := &testElement{}
-	err = m2.Get(4, te4)
+	te5 := &testElement{}
+	err = m2.Get(4, te5)
 	assert.NoError(t, err)
 	assert.Equal(t, "test 4", te4.Text)
 	assert.Equal(t, uint64(4), te4.Id)

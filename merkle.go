@@ -5,7 +5,8 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"errors"
-	"github.com/AllenIversons/mmr/db"
+	"fmt"
+	"github.com/alleniversons/mmr/db"
 	"hash"
 	"sync"
 )
@@ -111,6 +112,7 @@ func MerkleFromSource(hasher Hasher, root []byte, db db.IDatabase) (IMerkle, err
 }
 
 func (ms *merkleSource) Add(value interface{}) (data []byte, err error) {
+	fmt.Println("进入")
 	newObj := &objectNode{}
 	newObj.payload, err = json.Marshal(value)
 	if err != nil {
